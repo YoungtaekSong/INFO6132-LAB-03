@@ -7,31 +7,32 @@ import {
   View
 } from 'react-native';
 
-import Transaction from './componenets/Transaction';
+import Summary from './componenets/Summary';
+import Transactions from './componenets/Transactions';
 
 const Tab = createBottomTabNavigator();
 
 export default function App() {
   return (
     <NavigationContainer>
-      <View>
+      <View style={styles.container}>
         <StatusBar style="auto" />
 
         <Tab.Navigator>
           {/* home */}
-          <Tab.Screen name='Transation' options={{
+          <Tab.Screen name='Transations List' options={{
             headerShown: true,
             headerTintColor: '#fff',
             headerStyle: {
               backgroundColor: '#008080'
             },
-            title: 'Transaction',
+            title: 'Transactions',
             tabBarIcon: ({ color, size }) => (
               <FontAwesome name='file' size={size} color={color} />
             )
           }}>
             {(props) => (
-              <Transaction />
+              <Transactions />
             )}
           </Tab.Screen>
 
@@ -48,11 +49,7 @@ export default function App() {
             )
           }}>
             {(props) => (
-              <Search {...props}
-                movies={movies}
-                onAddTask={handleAddTask}
-                onSearchMovie={onSearchMovie}
-                onAddMovie={onAddMovie} />
+              <Summary {...props} />
             )}
           </Tab.Screen>
         </Tab.Navigator>
@@ -63,9 +60,7 @@ export default function App() {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+    marginTop: 0,
+    flex: 1
   },
 });

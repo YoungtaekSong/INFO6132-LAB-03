@@ -3,11 +3,11 @@ import {
     View
 } from 'react-native'
 
-export default function Transaction(props) {
+export default function Summary(props) {
     return (
         <>
             <View>
-                <Text>Transaction</Text>
+                <Text>Summary</Text>
             </View>
         </>
     )
