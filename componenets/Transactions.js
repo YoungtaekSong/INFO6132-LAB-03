@@ -8,8 +8,9 @@ import {
 export default function Transactions(props) {
 
     const renderItem = ({ item, index }) => (
-        <View>
-            <Text style={styles.item}>{index} | {item.name} | ${item.amount} &gt;</Text>
+        <View style={styles.renderItem}>
+            <Text style={styles.item}>{item.name}</Text>
+            <Text style={styles.item}>${item.amount.toFixed(2)} &gt;</Text>
         </View>
     );
 
@@ -31,7 +32,6 @@ export default function Transactions(props) {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        paddingTop: 22,
     },
     item: {
         padding: 10,
@@ -39,7 +39,12 @@ const styles = StyleSheet.create({
         height: 44,
     },
     separator: {
-        border: 1,
-        borderColor: "red"
-    }
+        backgroundColor: '#e0e0e0',
+        height: 1,
+    },
+    renderItem: {
+        flex: 1,
+        flexDirection: 'row',
+        justifyContent: 'space-between'
+    },
 });
