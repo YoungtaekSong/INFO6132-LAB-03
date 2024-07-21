@@ -16,6 +16,7 @@ const Tab = createBottomTabNavigator();
 
 export default function App() {
 
+  const [transactionSummary, setTransactionSummary] = useState({})
   const [transactions, setTransactions] = useState(
     [
       { id: uuid(), name: 'Starbucks', date: 'Mar 14, 2024', street: 'North York', province: 'ON', amount: 12.00 },
@@ -31,14 +32,17 @@ export default function App() {
     ]
   );
 
+  const handleSummary = () => {
+  }
+
   return (
     <NavigationContainer>
       <View style={styles.container}>
         <StatusBar style="auto" />
 
         <Tab.Navigator>
-          {/* home */}
-          <Tab.Screen name='Transations List' options={{
+          {/* Transactions */}
+          <Tab.Screen name='Transactions' options={{
             headerShown: true,
             headerTintColor: '#fff',
             headerStyle: {
@@ -54,7 +58,7 @@ export default function App() {
             )}
           </Tab.Screen>
 
-          {/* Search */}
+          {/* Summary */}
           <Tab.Screen name='Summary' options={{
             headerShown: true,
             title: 'Summary',

@@ -2,16 +2,22 @@ import {
     FlatList,
     StyleSheet,
     Text,
+    TouchableOpacity,
     View
 } from 'react-native';
 
 export default function Transactions(props) {
 
-    const renderItem = ({ item, index }) => (
-        <View style={styles.renderItem}>
+    const handleItemPress = (item) => {
+        console.log(item.amount);
+        console.log(item.id);
+    };
+
+    const renderItem = ({ item }) => (
+        <TouchableOpacity onPress={() => handleItemPress(item)} style={styles.renderItem}>
             <Text style={styles.item}>{item.name}</Text>
             <Text style={styles.item}>${item.amount.toFixed(2)} &gt;</Text>
-        </View>
+        </TouchableOpacity>
     );
 
     return (
