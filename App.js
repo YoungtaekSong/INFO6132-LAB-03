@@ -9,8 +9,8 @@ import {
 } from 'react-native';
 import uuid from 'react-uuid';
 
-import Summary from './componenets/Summary';
-import Transactions from './componenets/Transactions';
+import Summary from './components/Summary';
+import Transactions from './components/Transactions';
 
 const Tab = createBottomTabNavigator();
 
