@@ -1,3 +1,4 @@
+import { AntDesign } from '@expo/vector-icons';
 import {
     FlatList,
     StyleSheet,
@@ -16,7 +17,9 @@ export default function Transactions(props) {
     const renderItem = ({ item }) => (
         <TouchableOpacity onPress={() => handleItemPress(item)} style={styles.renderItem}>
             <Text style={styles.item}>{item.name}</Text>
-            <Text style={styles.item}>${item.amount.toFixed(2)} &gt;</Text>
+            <Text style={styles.value}>${item.amount.toFixed(2)}
+                <AntDesign name="right" size={18} />
+            </Text>
         </TouchableOpacity>
     );
 
@@ -44,6 +47,12 @@ const styles = StyleSheet.create({
         fontSize: 18,
         height: 44,
     },
+    value: {
+        padding: 10,
+        fontSize: 18,
+        height: 44,
+        color: 'green'
+    },
     separator: {
         backgroundColor: '#e0e0e0',
         height: 1,
@@ -51,6 +60,8 @@ const styles = StyleSheet.create({
     renderItem: {
         flex: 1,
         flexDirection: 'row',
-        justifyContent: 'space-between'
+        justifyContent: 'space-between',
+        paddingTop: 5,
+        paddingBottom: 5,
     },
 });
